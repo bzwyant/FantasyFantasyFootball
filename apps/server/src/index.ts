@@ -1,0 +1,26 @@
+import express, { Request, Response } from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+const app = express();
+const PORT = process.env.PORT || 3001;
+
+// Middleware
+app.use(cors());
+app.use(express.json());
+
+// Routes
+app.get('/api/health', (req: Request, res: Response) => {
+  res.json({ status: 'ok', message: 'Server is running' });
+});
+
+app.get('/api', (req: Request, res: Response) => {
+  res.json({ message: 'Fantasy Fantasy Football API' });
+});
+
+// Start server
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
