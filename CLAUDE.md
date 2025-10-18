@@ -58,10 +58,10 @@ The build pipeline is defined in `turbo.json`:
 pnpm dev
 
 # Start only the client
-cd apps/client && npm dev
+cd apps/client && pnpm dev
 
 # Start only the server (uses tsx watch for hot reload)
-cd apps/server && npm dev
+cd apps/server && pnpm dev
 ```
 
 ### Building
@@ -71,9 +71,9 @@ cd apps/server && npm dev
 pnpm build
 
 # Build specific package
-cd apps/client && npm build
-cd apps/server && npm build
-cd packages/types && npm run build
+cd apps/client && pnpm build
+cd apps/server && pnpm build
+cd packages/types && pnpm build
 ```
 
 ### Type Checking
@@ -83,7 +83,7 @@ cd packages/types && npm run build
 pnpm type-check
 
 # Type check specific package (use tsc --noEmit)
-cd apps/client && npm run type-check
+cd apps/client && pnpm type-check
 ```
 
 ### Linting
@@ -93,7 +93,7 @@ cd apps/client && npm run type-check
 pnpm lint
 
 # Lint client (uses Next.js ESLint config)
-cd apps/client && npm run lint
+cd apps/client && pnpm lint
 ```
 
 ### Cleaning
@@ -103,8 +103,8 @@ cd apps/client && npm run lint
 pnpm clean
 
 # Clean specific package
-cd apps/server && npm run clean  # Removes dist/ and .turbo/
-cd apps/client && npm run clean  # Removes .next/ and .turbo/
+cd apps/server && pnpm clean  # Removes dist/ and .turbo/
+cd apps/client && pnpm clean  # Removes .next/ and .turbo/
 ```
 
 ## Development Workflow
@@ -115,7 +115,7 @@ When modifying `packages/types` or `packages/database`:
 
 1. Make changes to the package
 2. Run `pnpm build` from root (Turborepo rebuilds dependents)
-3. Or run `npm run build` in the specific package, then restart consuming apps
+3. Or run `pnpm build` in the specific package, then restart consuming apps
 
 **Note**: The `dev` command does NOT automatically rebuild shared packages. You must manually rebuild them.
 
